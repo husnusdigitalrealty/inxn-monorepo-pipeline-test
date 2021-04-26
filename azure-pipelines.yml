@@ -1,0 +1,19 @@
+# Build numbering format
+name: $(BuildID)
+
+trigger:
+  branches:
+    include:
+      - master
+      - feat/*
+  paths:
+    exclude:
+      - 'ix-label/*'
+      - 'ix-button/*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: |
+      echo "Hello from '/' root folder."

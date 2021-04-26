@@ -1,0 +1,27 @@
+# Build numbering format
+name: $(BuildID)
+
+variables:
+  - name: working-dir
+    value: 'ix-button/'
+
+trigger:
+  branches:
+    include:
+      - master
+      - feat/*
+  paths:
+    include:
+      - 'ix-button/*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo "Hello from 'ix-button'"
+
+- script: npm install
+  workingDirectory: $(working-dir)
+
+- script: npm run chalk
+  workingDirectory: $(working-dir)
